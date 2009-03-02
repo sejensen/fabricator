@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Panel xmlns:mx="http://www.adobe.com/2006/mxml" xmlns="*" layout="absolute" horizontalCenter="0" verticalCenter="0" title="Sign in" horizontalAlign="center" width="420" height="210" show="onShow()" creationComplete="focusManager.setFocus(usernameTI);">
+	<mx:Script>
+		<![CDATA[
+		import mx.controls.Alert;
+	
+		private function onShow():void {
+			usernameTI.text = "";
+			passwordTI.text = "";
+			focusManager.setFocus(usernameTI);
+		}
+		
+		/**
+		 * Enable or disable the login button depending on whether or not the user has entered something into both username and password fields
+		 */
+		private function usernamePasswordChange():void {
+			signInButton.enabled = (usernameTI.text.length > 0 && passwordTI.length > 0);
+		}
+		
+		/**
+		 * Show an invalid login alert and clear the username and password fields
+		 */
+		public function showInvalidSignInAlert():void {
+			// Popup an alert
+			Alert.show("Invalid username/password", "Sign in error", Alert.OK, this);
+			
+			// Clear the input fields and notify the change handler (this will disable the connect button)
+			usernameTI.text = "";
+			passwordTI.text = "";
+			usernamePasswordChange();
+		}
+		
+		]]>
+	</mx:Script>
+	
+		<mx:Form defaultButton="{signInButton}" horizontalCenter="0" verticalCenter="0">
+			<mx:FormItem required="true" label="Username">
+				<mx:TextInput id="usernameTI" width="105" change="usernamePasswordChange()" />
+			</mx:FormItem>
+			<mx:FormItem required="true" label="Password">
+				<mx:TextInput id="passwordTI" change="usernamePasswordChange()" displayAsPassword="true" width="105" />
+			</mx:FormItem>
+			<mx:FormItem horizontalAlign="left"> 
+				<mx:Button id="signInButton" label="Sign in" enabled="false" />
+				
+			</mx:FormItem>
+		</mx:Form>
+</mx:Panel>

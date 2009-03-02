@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:ViewStack xmlns:mx="http://www.adobe.com/2006/mxml" resizeToContent="true" width="100%" height="100%" hideEffect="hideViewStack" showEffect="showViewStack">
+	<mx:transitions>
+      <mx:Transition >
+          <mx:Parallel id="hideViewStack"  >
+            <mx:WipeDown duration="800"/>
+        </mx:Parallel>
+      </mx:Transition>
+      <mx:Transition >
+        <mx:Parallel id="showViewStack">
+            <mx:WipeUp duration="800"/>
+        </mx:Parallel>
+      </mx:Transition>
+	</mx:transitions>
+</mx:ViewStack>

@@ -1,0 +1,6 @@
+base_src_folder:
+    <%= base_src_folder%>
+base_package_folder:
+    <%= base_package_folder%>
+package:
+    <%= base_package%>

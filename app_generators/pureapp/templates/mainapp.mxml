@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fab:FlexApplication xmlns:mx="http://www.adobe.com/2006/mxml" pageTitle="<%= title%>"
+	xmlns:fab="org.puremvc.as3.multicore.utilities.fabrication.components.*" xmlns:sh="<%=base_package%>.shell.view.components.*"
+    backgroundGradientColors="[#3B6E8F, #FFFFFF]" backgroundGradientAlphas="[1.0, 1.0]" layout="absolute" themeColor="HaloBlue" frameRate="60"> 
+
+	<mx:Script>
+    <![CDATA[
+      import <%=base_package%>.shell.controller.<%= startup_command_name %>;
+
+      override public function getStartupCommand():Class {
+	    return <%= startup_command_name %>;		
+	  }
+    ]]>
+  	</mx:Script>
+  
+	<mx:Zoom id="zoom" />
+	<mx:Fade id="fade" />
+	<mx:Dissolve id="dissolve" />
+	
+	<!--mx:LinkBar dataProvider="{modulesContainer}" direction="vertical" borderStyle="solid" backgroundColor="#EEEEEE"/-->
+  	<sh:ModulesContainer id="modulesContainer" />
+</fab:FlexApplication>

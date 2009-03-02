@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:ApplicationControlBar xmlns:mx="http://www.adobe.com/2006/mxml" dock="true" fillAlphas="[1.0, 1.0]" fillColors="[#FFFFFF, #FFFFFF]" width="100%" cornerRadius="0">
+	<mx:HBox id="toolbarLeft" horizontalAlign="left" verticalAlign="middle" width="50%" height="100%">
+       	<mx:Text text="<%= title%>" fontFamily="Verdana" fontSize="18" fontStyle="normal" color="#325EC0"/>
+       	<mx:Button id="home" label="Home" color="#325EC0"  cornerRadius="0" fontWeight="bold" borderColor="#FEFEFE" fillAlphas="[1.0, 1.0]" fillColors="[#FFFFFF, #FFFFFF]"/>
+   	</mx:HBox>
+
+   	<mx:HBox id="toolbarRight" horizontalAlign="right" verticalAlign="middle" width="50%" height="100%">
+   		<mx:Label text="User:" color="#325EC0"/>
+   		<!--mx:Text id="user" color="#325EC0"/-->
+   		<mx:VRule height="18"/>
+   		<mx:Button id="signOutButton" label="Sign out" color="#325EC0"  cornerRadius="0" borderColor="#FFFFFF" fillAlphas="[1.0, 1.0]" fillColors="[#FFFFFF, #FFFFFF]"/>
+   	</mx:HBox>
+</mx:ApplicationControlBar>

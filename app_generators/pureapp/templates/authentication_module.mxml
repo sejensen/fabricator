@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fab:FlexModule 
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:fab="org.puremvc.as3.multicore.utilities.fabrication.components.*"
+	xmlns:local="<%= base_package%>.modules.authentication.view.components.*" width="100%" height="100%">
+	
+	<mx:Script>
+		<![CDATA[
+			import <%= base_package%>.modules.authentication.controller.AuthenticationModuleStartupCommand;
+			import mx.effects.easing.*;
+			
+			override public function getStartupCommand():Class {
+				return AuthenticationModuleStartupCommand;
+			}
+			
+			override public function getClassByName(path:String):Class {
+				return getDefinitionByName(path) as Class;	
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:Label text="Welcome to <%= title%>" color="#FFFFFF" fontSize="30" width="100%" textAlign="center" fontWeight="bold"/>
+	<mx:Blur id="myViewShowEffect" blurXFrom="100" blurXTo="0" blurYFrom="100" blurYTo="0" duration="600" />
+	<mx:VBox height="100%" width="100%"  horizontalAlign="center" verticalAlign="middle" showEffect="{myViewShowEffect}">
+		<local:SignInView id="signInView" showEffect="{myViewShowEffect}"/>
+	</mx:VBox>
+</fab:FlexModule>

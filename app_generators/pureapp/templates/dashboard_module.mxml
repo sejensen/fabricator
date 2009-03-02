@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fab:FlexModule 
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:fab="org.puremvc.as3.multicore.utilities.fabrication.components.*"
+	xmlns:local="<%= base_package%>.modules.dashboard.view.components.*" width="100%" height="100%">
+	
+	<mx:Script>
+		<![CDATA[
+			import <%= base_package%>.modules.dashboard.controller.DashboardModuleStartupCommand;
+			import mx.effects.easing.*;
+			
+			private var count:int = 0;
+			
+			override public function getStartupCommand():Class {
+				return DashboardModuleStartupCommand;
+			}
+			
+			override public function getClassByName(path:String):Class {
+				return getDefinitionByName(path) as Class;	
+			}
+			
+		]]>
+	</mx:Script>
+	<local:NavBar id="navBar"/>
+	<mx:VBox height="100%" width="100%"  horizontalAlign="center" verticalAlign="middle">
+		<local:TodoList id="todoList"/>
+	</mx:VBox>
+</fab:FlexModule>

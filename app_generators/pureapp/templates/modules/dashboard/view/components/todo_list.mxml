@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:TitleWindow xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" width="450" height="450" title="TODO list" color="0xffffff" borderAlpha="0.15"
+         paddingTop="10" paddingRight="10" paddingBottom="10" paddingLeft="10" horizontalAlign="center">
+	
+	<mx:Label text="This is a list of things to complete before the application is finished." top="15" horizontalCenter="0" color="#000000"/>
+	
+	<mx:VBox color="0x000000" horizontalCenter="0" verticalCenter="0">
+	    <mx:CheckBox label="Finish the AuthenticationProxy" />
+	    <mx:CheckBox label="Make a service call to retrieve data" />
+        <mx:CheckBox label="Build extra modules with the generator" />
+        <mx:CheckBox label="Add module buttons to navbar" />
+        <mx:CheckBox label="..." />
+        <mx:CheckBox label="..." />
+        <mx:CheckBox label="..." />
+        <mx:CheckBox label="..." />
+        <mx:CheckBox label="..." />
+		<mx:CheckBox label="Make a release build with flex builder" />
+        <mx:CheckBox label="Enjoy!!!" />
+    </mx:VBox>
+
+</mx:TitleWindow>
