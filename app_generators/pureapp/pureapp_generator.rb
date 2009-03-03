@@ -54,7 +54,7 @@ class PureappGenerator < RubiGen::Base
       end
       
       # Save generator properties for component generators.
-      m.template "properties.yml", "/script/properties.yml" 
+      m.template "fabricator.yml", "/script/fabricator.yml" 
       
       # Create template files
       %w(history.css history.js historyFrame.html).each do |file|
