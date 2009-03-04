@@ -76,6 +76,7 @@ class PureappGenerator < RubiGen::Base
       # Create shell stubs
       m.template "shell/shell_constants.as", "#{@base_folder}/shell/#{@name}ShellConstants.as"
       m.template "shell/controller/startup_command.as", "#{@base_folder}/shell/controller/#{@startup_command_name}.as"
+      m.template "shell/controller/load_all_modules_command.as", "#{@base_folder}/shell/controller/LoadAllModulesCommand.as"
       m.template "shell/controller/add_module_command.as", "#{@base_folder}/shell/controller/AddModuleCommand.as"
       m.template "shell/controller/remove_module_command.as", "#{@base_folder}/shell/controller/RemoveModuleCommand.as"
       m.template "shell/controller/change_selected_module_command.as", "#{@base_folder}/shell/controller/ChangeSelectedModuleCommand.as" 

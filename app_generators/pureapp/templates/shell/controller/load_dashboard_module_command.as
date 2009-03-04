@@ -8,7 +8,7 @@ package <%= base_package%>.shell.controller {
 	public class LoadDashboardModuleCommand extends SimpleFabricationCommand {
 		
 		override public function execute(note:INotification):void {
-			trace("Loading dashboard module")
+			trace("loading dashboard module")
 			var moduleDescriptor:ModuleDescriptor = new ModuleDescriptor("DashboardModule.swf");
 			sendNotification(<%= name%>ShellConstants.ADD_MODULE, moduleDescriptor);
 		}

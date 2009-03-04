@@ -33,6 +33,7 @@ app_generators/pureapp/templates/project.properties
 app_generators/pureapp/templates/fabricator.yml
 app_generators/pureapp/templates/shell/controller/add_module_command.as
 app_generators/pureapp/templates/shell/controller/change_selected_module_command.as
+app_generators/pureapp/templates/shell/controller/load_all_modules_command.as
 app_generators/pureapp/templates/shell/controller/load_dashboard_module_command.as
 app_generators/pureapp/templates/shell/controller/remove_module_command.as
 app_generators/pureapp/templates/shell/controller/startup_command.as
@@ -57,6 +58,7 @@ README.rdoc
 generators/pure_module/pure_module_generator.rb
 generators/pure_module/templates/actionscript.properties
 generators/pure_module/templates/fabricator.yml
+generators/pure_module/templates/shell/controller/load_all_modules_command.as
 generators/pure_module/templates/module/controller/module_startup_command.as
 generators/pure_module/templates/module/model/proxy.as
 generators/pure_module/templates/module/view/components/view.mxml
