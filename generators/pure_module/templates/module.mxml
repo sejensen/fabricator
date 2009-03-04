@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fab:FlexModule 
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:fab="org.puremvc.as3.multicore.utilities.fabrication.components.*"
+	xmlns:local="<%= base_package%>.modules.<%= module_folder%>.view.components.*" width="100%" height="100%">
+	
+	<mx:Script>
+		<![CDATA[
+			import <%= base_package%>.modules.<%= module_folder%>.controller.<%= module_name%>ModuleStartupCommand;
+			
+			override public function getStartupCommand():Class {
+				return <%= module_name%>ModuleStartupCommand;
+			}
+			
+			override public function getClassByName(path:String):Class {
+				return getDefinitionByName(path) as Class;	
+			}
+			
+		]]>
+	</mx:Script>
+	<mx:Label text="Welcome to module" color="#FFFFFF" fontSize="30" width="100%" textAlign="center" fontWeight="bold"/>
+	<mx:VBox height="100%" width="100%"  horizontalAlign="center" verticalAlign="middle">
+		<local:<%= module_name%>View id="<%= module_name%>View"/>
+	</mx:VBox>
+</fab:FlexModule>

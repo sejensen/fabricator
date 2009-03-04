@@ -11,7 +11,9 @@ class PureappGenerator < RubiGen::Base
               :base_folder,
               :base_src_folder,
               :base_package_folder,
-              :startup_command_name
+              :startup_command_name,
+              :modules
+              
 
   def initialize(runtime_args, runtime_options = {})
     super
@@ -24,6 +26,7 @@ class PureappGenerator < RubiGen::Base
     @base_package_folder = @base_package.gsub('.', '/').gsub(/\s/, '')
     @base_folder = @base_src_folder + @base_package_folder
     @startup_command_name = "#{@name}ShellStartupCommand"
+    @modules = ["Authentication","Dashboard"]
     extract_options
   end
 

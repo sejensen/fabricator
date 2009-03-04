@@ -1,25 +1,45 @@
 require File.join(File.dirname(__FILE__), '..', '..', 'lib', 'fabricator') if !defined?(Fabricator)
 
 class PureModuleGenerator < RubiGen::Base
-  #require 'fabricator/configuration'
   include Fabricator::Configuration
 
   default_options :author => nil
 
-  attr_reader :name
+  attr_reader :name,
+              :module_name,
+              :module_folder,
+              :app_name,
+              :base_src_folder,
+              :base_package_folder,
+              :base_package,
+              :module_names
 
   def initialize(runtime_args, runtime_options = {})
     super
     usage if args.empty?
-    @name = args.shift
-    puts extract_config
+    @module_name = args.shift.capitalize
+    @module_folder = @module_name.downcase
+    
+    @name, @base_src_folder, @base_package_folder, @base_package, @module_names = extract_config
+    @base_folder = @base_src_folder + @base_package_folder
     extract_options
   end
 
   def manifest
     record do |m|
       # Ensure appropriate folder(s) exists
-      m.directory 'some_folder'
+      m.directory @base_folder +"/modules/#{@module_folder}/model"
+      m.directory @base_folder +"/modules/#{@module_folder}/view/components"
+      m.directory @base_folder +"/modules/#{@module_folder}/controller"
+
+      #Create module
+      #FIXME module_name as folder should not be capitalized
+      m.template "module.mxml", "#{@base_src_folder}/#{module_name}Module.mxml"
+      m.template "module/controller/module_startup_command.as","#{@base_folder}/modules/#{@module_folder}/controller/#{module_name}ModuleStartupCommand.as"  
+      m.template "module/view/module_mediator.as", "#{@base_folder}/modules/#{@module_folder}/view/#{module_name}ModuleMediator.as" 
+      m.template "module/view/components/view.mxml", "#{@base_folder}/modules/#{@module_folder}/view/components/#{module_name}View.mxml" #fixme
+      m.template "module/view/view_mediator.as", "#{@base_folder}/modules/#{@module_folder}/view/#{module_name}ViewMediator.as" #fixme
+      m.template "module/model/proxy.as", "#{@base_folder}/modules/#{@module_folder}/model/#{module_name}Proxy.as"
 
       # Create stubs
       # m.template           "template.rb.erb", "some_file_after_erb.rb"
