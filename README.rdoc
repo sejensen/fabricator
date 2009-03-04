@@ -1,32 +1,41 @@
 = fabricator
 
-* FIX (url)
+Developed by 
+Steffen Egelund Jensen
+Software designer
+Lenio A/S - www.lenio.dk
 
 == DESCRIPTION:
 
-FIX (describe your package)
+This gem can generate a scaffold flex application based on PureMVC Multicore using the pipes utility abstracted by the fabrication framework.
+The initial application will be generated based on custom project name, title, src folder and package. Plus will include two modules:
+an authentication module and a dashboard module. It is intended that the gem in the future will be able to add new scaffold modules integrated with the application. 
+New commands, proxies etc.
 
 == FEATURES/PROBLEMS:
-
-* FIX (list of features or problems)
+	
 
 == SYNOPSIS:
-
-  FIX (code sample of usage)
+Generate PureMVC Multicore with pipes application abstracted by the Fabrication framework
+-Install and run 
+  pureapp AppName org.my.custom.package 'app title'
+-Import flex project in Flex Builder
+-After compile run
+  AppNameShell.mxml
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+rubygems, ruby
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+sudo gem install fabricator
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2009 FIXME full name
+Copyright (c) 2009 Steffen Egelund Jensen
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
