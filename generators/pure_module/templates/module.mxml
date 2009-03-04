@@ -18,8 +18,8 @@
 			
 		]]>
 	</mx:Script>
-	<mx:Label text="Welcome to module" color="#FFFFFF" fontSize="30" width="100%" textAlign="center" fontWeight="bold"/>
+	<mx:Label text="This is the <%= module_name%> module" color="#FFFFFF" fontSize="30" width="100%" textAlign="center" fontWeight="bold"/>
 	<mx:VBox height="100%" width="100%"  horizontalAlign="center" verticalAlign="middle">
-		<local:<%= module_name%>View id="<%= module_name%>View"/>
+		<local:<%= module_name%>View id="<%= module_folder%>View"/>
 	</mx:VBox>
 </fab:FlexModule>

@@ -3,7 +3,7 @@ package <%= base_package%>.modules.<%= module_folder%>.view {
 	
 	import <%= base_package%>.modules.<%= module_folder%>.view.components.<%= module_name%>View;
 
-	public class <%= module_name%>MonameduleMediator extends FlexMediator {
+	public class <%= module_name%>ModuleMediator extends FlexMediator {
 		
 		static public const NAME:String = "<%= module_name%>ModuleMediator";
 		
@@ -24,7 +24,7 @@ package <%= base_package%>.modules.<%= module_folder%>.view {
 		}
 		
 		override public function onRegister():void {
-			registerMediator(new <%= module_name%>ViewMediator(<%= module_name%>View));
+			registerMediator(new <%= module_name%>ViewMediator(<%= module_folder%>View));
 		} 
 		
 	}

@@ -11,7 +11,7 @@ module Fabricator
            base_src_folder = config['base_src_folder']
            base_package_folder = config['base_package_folder']
            base_package = base_package_folder.gsub('/', '.').gsub(/\s/, '')
-           module_names = config['module_names']
+           module_names = config['module_names'].split(' ')
          rescue
            #base_folder = base_package = project_name_downcase
            #controller_name = "ApplicationController"

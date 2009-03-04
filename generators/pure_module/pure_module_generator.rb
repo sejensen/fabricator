@@ -12,7 +12,7 @@ class PureModuleGenerator < RubiGen::Base
               :base_src_folder,
               :base_package_folder,
               :base_package,
-              :module_names
+              :modules
 
   def initialize(runtime_args, runtime_options = {})
     super
@@ -20,8 +20,9 @@ class PureModuleGenerator < RubiGen::Base
     @module_name = args.shift.capitalize
     @module_folder = @module_name.downcase
     
-    @name, @base_src_folder, @base_package_folder, @base_package, @module_names = extract_config
+    @name, @base_src_folder, @base_package_folder, @base_package, @modules = extract_config
     @base_folder = @base_src_folder + @base_package_folder
+    modules << @module_name
     extract_options
   end
 
@@ -32,8 +33,7 @@ class PureModuleGenerator < RubiGen::Base
       m.directory @base_folder +"/modules/#{@module_folder}/view/components"
       m.directory @base_folder +"/modules/#{@module_folder}/controller"
 
-      #Create module
-      #FIXME module_name as folder should not be capitalized
+      # Create module
       m.template "module.mxml", "#{@base_src_folder}/#{module_name}Module.mxml"
       m.template "module/controller/module_startup_command.as","#{@base_folder}/modules/#{@module_folder}/controller/#{module_name}ModuleStartupCommand.as"  
       m.template "module/view/module_mediator.as", "#{@base_folder}/modules/#{@module_folder}/view/#{module_name}ModuleMediator.as" 
@@ -41,6 +41,11 @@ class PureModuleGenerator < RubiGen::Base
       m.template "module/view/view_mediator.as", "#{@base_folder}/modules/#{@module_folder}/view/#{module_name}ViewMediator.as" #fixme
       m.template "module/model/proxy.as", "#{@base_folder}/modules/#{@module_folder}/model/#{module_name}Proxy.as"
 
+      # Recreate .actionscriptproperty file with all modules
+      m.template 'actionscript.properties', '.actionScriptProperties' #TODO remove common template files to common dir
+      # Resave generator properties for component generators.
+      m.template "fabricator.yml", "/script/fabricator.yml"
+      
       # Create stubs
       # m.template           "template.rb.erb", "some_file_after_erb.rb"
       # m.template_copy_each ["template.rb", "template2.rb"]
