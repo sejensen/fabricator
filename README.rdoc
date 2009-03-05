@@ -23,6 +23,11 @@ Generate PureMVC Multicore with pipes application abstracted by the Fabrication 
 -After compile run
   AppNameShell.mxml
 
+Generate module
+cd AppName
+ruby script/generate pure_module ModuleName 
+i.e. ruby script/generate pure_module Address -> results in AddressModule.mxml plus generated code for the new module.
+
 == REQUIREMENTS:
 
 rubygems, ruby
