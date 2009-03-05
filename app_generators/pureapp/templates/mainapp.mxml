@@ -10,6 +10,11 @@
       override public function getStartupCommand():Class {
 	    return <%= startup_command_name %>;		
 	  }
+	
+	  override public function getClassByName(path:String):Class {
+		return getDefinitionByName(path) as Class;	
+	  }
+	  
     ]]>
   	</mx:Script>
   

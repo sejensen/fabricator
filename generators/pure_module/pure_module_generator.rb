@@ -44,7 +44,9 @@ class PureModuleGenerator < RubiGen::Base
       # Recreate .actionscriptproperty file with all modules
       m.template 'actionscript.properties', '.actionScriptProperties' #TODO remove common template files to common dir
       # Resave generator properties for component generators.
-      m.template "fabricator.yml", "/script/fabricator.yml"
+      m.template "fabricator.yml", "/script/fabricator.yml" #TODO remove common template files to common dir
+      # Rebuild load_all_modules_command
+       m.template "shell/controller/load_all_modules_command.as", "#{@base_folder}/shell/controller/LoadAllModulesCommand.as" #TODO remove common template files to common dir
       
       # Create stubs
       # m.template           "template.rb.erb", "some_file_after_erb.rb"
