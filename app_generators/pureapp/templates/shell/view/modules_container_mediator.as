@@ -4,6 +4,7 @@ package <%= base_package%>.shell.view {
 	import flash.display.DisplayObject;
 	import flash.system.ApplicationDomain;
 	
+	import mx.core.Container;
 	import mx.events.ModuleEvent;
 	import mx.modules.IModuleInfo;
 	import mx.modules.ModuleLoader;
@@ -16,7 +17,8 @@ package <%= base_package%>.shell.view {
 	import org.puremvc.as3.multicore.utilities.fabrication.patterns.mediator.FlexMediator;
 	
 	import <%= base_package%>.shell.model.ModuleDescriptor;
-	import <%= base_package%>.shell.view.components.ModulesContainer;		
+	import <%= base_package%>.shell.view.components.ModulesContainer;
+	import <%= base_package%>.shell.<%= name%>ShellConstants;		
 
 	public class ModulesContainerMediator extends FlexMediator {
 
@@ -104,9 +106,13 @@ package <%= base_package%>.shell.view {
 			
 			modulesContainer.addChild(moduleInstance as DisplayObject);
 			//FIXME remove and find another way to choose wich module to select, use SELECT_MODULE
-			if (modulesContainer.numChildren>1) {
+			/*if (modulesContainer.numChildren>1) {
 				modulesContainer.selectedIndex = modulesContainer.numChildren-1;
+			}*/
+			if (moduleDescriptor.url == "DashboardModule.swf") {
+				modulesContainer.selectedChild = moduleInstance as Container;
 			}
+			sendNotification(<%= name%>ShellConstants.MODULE_LOADED, event.module.data);
 		}
 		
 		private function moduleCreated(event:FabricatorEvent):void {
