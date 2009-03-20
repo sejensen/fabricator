@@ -3,6 +3,9 @@ package <%= base_package%>.modules.dashboard.view {
 	
 	import <%= base_package%>.modules.dashboard.view.components.NavBar;
 	import <%= base_package%>.modules.dashboard.view.components.TodoList;
+	import <%= base_package%>.modules.dashboard.DashboardModuleConstants;
+	
+	import org.puremvc.as3.multicore.interfaces.INotification;
 
 	public class DashboardModuleMediator extends FlexMediator {
 		
@@ -32,6 +35,12 @@ package <%= base_package%>.modules.dashboard.view {
 			registerMediator(new NavBarMediator(navBar));
 			registerMediator(new TodoListMediator(todoList));
 		} 
+		
+		public function respondToModulesLoadedSuccessfully(note:INotification):void {
+			trace('received routed notification: modulesLoadedSuccessfully');
+			sendNotification(DashboardModuleConstants.REQUEST_DASHBOARD_VIEW_FROM_LOADED_MODULES);
+			//FIXME nothing happens yet
+		}
 		
 	}
 }

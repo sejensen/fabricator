@@ -16,6 +16,11 @@ package <%= base_package%>.modules.dashboard.controller {
 			/*registerCommand(FabricationRoutingDemoConstants.RECEIVE_MESSAGE, UpdateMessageCountsCommand);
 			*/
 			registerMediator(new DashboardModuleMediator(note.getBody() as DashboardModule));
+			
+			//FIXME not implemented yet
+			//registerCommand(DashboardModuleConstants.REQUEST_DASHBOARD_VIEW_FROM_LOADED_MODULES, RequestDashboardViewFromLoadedModulesCommand);
+			//tell shell to load all Modules
+			routeNotification(<%= name%>Constants.LOAD_ALL_MODULES, null, null, "<%= name%>Shell/*");
 		}
 		
 	}

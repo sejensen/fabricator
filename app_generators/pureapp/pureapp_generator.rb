@@ -65,7 +65,7 @@ class PureappGenerator < RubiGen::Base
       end
      
       # Copy needed swc's and their licenses
-      %w(puremvc_multicore_license.txt puremvc_pipes_license.txt PureMVC_AS3_MultiCore_1_0_5.swc Utility_AS3_MultiCore_Pipes_1_1.swc fabrication-0.6-flex.swc fabrication_license.txt).each do |file|
+      %w(puremvc_multicore_license.txt puremvc_pipes_license.txt PureMVC_AS3_MultiCore_1_0_5.swc Utility_AS3_MultiCore_Pipes_1_1.swc fabrication-0.6-flex.swc fabrication_license.txt Utility_AS3_MultiCore_StartupManager_1_5.swc).each do |file|
         m.file "libs/#{file}", "libs/#{file}"
       end
      
@@ -80,6 +80,7 @@ class PureappGenerator < RubiGen::Base
       m.template "shell/controller/add_module_command.as", "#{@base_folder}/shell/controller/AddModuleCommand.as"
       m.template "shell/controller/remove_module_command.as", "#{@base_folder}/shell/controller/RemoveModuleCommand.as"
       m.template "shell/controller/change_selected_module_command.as", "#{@base_folder}/shell/controller/ChangeSelectedModuleCommand.as" 
+      m.template "shell/controller/module_loaded_command.as", "#{@base_folder}/shell/controller/ModuleLoadedCommand.as"
       m.template "shell/view/mediator.as", "#{@base_folder}/shell/view/#{@name}ShellMediator.as"
       m.file "shell/view/components/modules_container.mxml", "#{@base_folder}/shell/view/components/ModulesContainer.mxml"
       m.template "shell/view/modules_container_mediator.as", "#{@base_folder}/shell/view/ModulesContainerMediator.as"
@@ -87,6 +88,7 @@ class PureappGenerator < RubiGen::Base
       m.template "shell/model/selection_proxy.as", "#{@base_folder}/shell/model/SelectionProxy.as"
       m.template "shell/model/i_list_element.as", "#{@base_folder}/shell/model/IListElement.as"
       m.template "shell/model/module_descriptor.as", "#{@base_folder}/shell/model/ModuleDescriptor.as"
+      m.template "shell/model/load_modules_proxy.as", "#{@base_folder}/shell/model/LoadModulesProxy.as"
       
       #Create authentication module
       m.template "authentication_module.mxml", "#{@base_src_folder}/AuthenticationModule.mxml"
@@ -105,6 +107,7 @@ class PureappGenerator < RubiGen::Base
       m.template "modules/dashboard/view/nav_bar_mediator.as", "#{@base_folder}/modules/dashboard/view/NavBarMediator.as"
       m.template "modules/dashboard/view/components/todo_list.mxml", "#{@base_folder}/modules/dashboard/view/components/TodoList.mxml"
       m.template "modules/dashboard/view/todo_list_mediator.as", "#{@base_folder}/modules/dashboard/view/TodoListMediator.as"
+      m.template "modules/dashboard/dashboard_module_constants.as", "#{@base_folder}/modules/dashboard/DashboardModuleConstants.as"
       
       # Create stubs
       # m.template "template.rb",  "some_file_after_erb.rb"

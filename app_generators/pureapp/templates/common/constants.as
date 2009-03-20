@@ -7,6 +7,8 @@ package <%= base_package%>.common {
 		static public const SIGN_OUT:String = "signOut";
 		
 		static public const SHELL_NAME:String = "<%= name%>Shell";
+		static public const LOAD_ALL_MODULES:String = "loadAllModules";
+		static public const MODULES_LOADED_SUCCESSFULLY:String = "modulesLoadedSuccessfully";
 		
 	}
 }

@@ -17,6 +17,7 @@ app_generators/pureapp/templates/libs/PureMVC_AS3_MultiCore_1_0_5.swc
 app_generators/pureapp/templates/libs/puremvc_multicore_license.txt
 app_generators/pureapp/templates/libs/puremvc_pipes_license.txt
 app_generators/pureapp/templates/libs/Utility_AS3_MultiCore_Pipes_1_1.swc
+app_generators/pureapp/templates/libs/Utility_AS3_MultiCore_StartupManager_1_5.swc
 app_generators/pureapp/templates/mainapp.mxml
 app_generators/pureapp/templates/modules/authentication/controller/authentication_module_startup_command.as
 app_generators/pureapp/templates/modules/authentication/model/authentication_proxy.as
@@ -29,9 +30,11 @@ app_generators/pureapp/templates/modules/dashboard/view/components/todo_list.mxm
 app_generators/pureapp/templates/modules/dashboard/view/dashboard_module_mediator.as
 app_generators/pureapp/templates/modules/dashboard/view/nav_bar_mediator.as
 app_generators/pureapp/templates/modules/dashboard/view/todo_list_mediator.as
+app_generators/pureapp/templates/modules/dashboard/dashboard_module_constants.as
 app_generators/pureapp/templates/project.properties
 app_generators/pureapp/templates/fabricator.yml
 app_generators/pureapp/templates/shell/controller/add_module_command.as
+app_generators/pureapp/templates/shell/controller/module_loaded_command.as
 app_generators/pureapp/templates/shell/controller/change_selected_module_command.as
 app_generators/pureapp/templates/shell/controller/load_all_modules_command.as
 app_generators/pureapp/templates/shell/controller/load_dashboard_module_command.as
@@ -40,6 +43,7 @@ app_generators/pureapp/templates/shell/controller/startup_command.as
 app_generators/pureapp/templates/shell/model/i_list_element.as
 app_generators/pureapp/templates/shell/model/list_proxy.as
 app_generators/pureapp/templates/shell/model/module_descriptor.as
+app_generators/pureapp/templates/shell/model/load_modules_proxy.as
 app_generators/pureapp/templates/shell/model/selection_proxy.as
 app_generators/pureapp/templates/shell/shell_constants.as
 app_generators/pureapp/templates/shell/view/components
@@ -58,7 +62,7 @@ README.rdoc
 generators/pure_module/pure_module_generator.rb
 generators/pure_module/templates/actionscript.properties
 generators/pure_module/templates/fabricator.yml
-generators/pure_module/templates/shell/controller/load_all_modules_command.as
+generators/pure_module/templates/shell/model/load_modules_proxy.as
 generators/pure_module/templates/module/controller/module_startup_command.as
 generators/pure_module/templates/module/model/proxy.as
 generators/pure_module/templates/module/view/components/view.mxml
